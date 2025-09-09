@@ -1,0 +1,83 @@
+Protel Design System Design Rule Check
+PCB File : C:\Users\Public\Documents\Altium\BasitLDLDonusturucu_Project\LDO.PcbDoc
+Date     : 9.09.2025
+Time     : 11:18:17
+
+WARNING: Design contains shelved or modified (but not repoured) polygons. The result of DRC is not correct. Recommended to restore/repour all polygons and proceed with DRC again
+   Polygon named: NONET_L02_P001 On Top Layer
+
+Processing Rule : Clearance Constraint (Gap=0.254mm) (All),(All)
+   Violation between Clearance Constraint: (Collision < 0.254mm) Between Polygon Region (0 hole(s)) Bottom Layer And Via (10.5mm,2.875mm) from Top Layer to Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 0.254mm) Between Polygon Region (0 hole(s)) Bottom Layer And Via (11.928mm,4.976mm) from Top Layer to Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 0.254mm) Between Polygon Region (0 hole(s)) Bottom Layer And Via (17.543mm,2.944mm) from Top Layer to Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 0.254mm) Between Polygon Region (0 hole(s)) Bottom Layer And Via (23.569mm,5.623mm) from Top Layer to Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 0.254mm) Between Polygon Region (0 hole(s)) Bottom Layer And Via (8.263mm,4.375mm) from Top Layer to Bottom Layer 
+Rule Violations :5
+
+Processing Rule : Short-Circuit Constraint (Allowed=No) (All),(All)
+   Violation between Short-Circuit Constraint: Between Polygon Region (0 hole(s)) Bottom Layer And Via (10.5mm,2.875mm) from Top Layer to Bottom Layer Location : [X = 103.5mm][Y = 63.875mm]
+   Violation between Short-Circuit Constraint: Between Polygon Region (0 hole(s)) Bottom Layer And Via (11.928mm,4.976mm) from Top Layer to Bottom Layer Location : [X = 104.928mm][Y = 65.976mm]
+   Violation between Short-Circuit Constraint: Between Polygon Region (0 hole(s)) Bottom Layer And Via (17.543mm,2.944mm) from Top Layer to Bottom Layer Location : [X = 110.543mm][Y = 63.944mm]
+   Violation between Short-Circuit Constraint: Between Polygon Region (0 hole(s)) Bottom Layer And Via (23.569mm,5.623mm) from Top Layer to Bottom Layer Location : [X = 116.569mm][Y = 66.623mm]
+   Violation between Short-Circuit Constraint: Between Polygon Region (0 hole(s)) Bottom Layer And Via (8.263mm,4.375mm) from Top Layer to Bottom Layer Location : [X = 101.263mm][Y = 65.375mm]
+Rule Violations :5
+
+Processing Rule : Un-Routed Net Constraint ( (All) )
+   Violation between Un-Routed Net Constraint: Arc (1.27mm,10.095mm) on Top Layer Dead Copper - Net Not Assigned.
+   Violation between Un-Routed Net Constraint: Arc (1mm,0.365mm) on Top Layer Dead Copper - Net Not Assigned.
+   Violation between Un-Routed Net Constraint: Arc (26.586mm,9.365mm) on Top Layer Dead Copper - Net Not Assigned.
+   Violation between Un-Routed Net Constraint: Arc (27.586mm,10.365mm) on Top Layer Dead Copper - Net Not Assigned.
+   Violation between Un-Routed Net Constraint: Arc (27.73mm,0.635mm) on Top Layer Dead Copper - Net Not Assigned.
+   Violation between Un-Routed Net Constraint: Net GND Between Track (12.676mm,4.976mm)(12.7mm,5mm) on Top Layer And Pad C1-1(17.543mm,4.175mm) on Top Layer 
+   Violation between Un-Routed Net Constraint: Polygon Not Repour After Edit  (NONET_L02_P001) on Bottom Layer Dead Copper - Net Not Assigned.
+   Violation between Un-Routed Net Constraint: Track (0mm,0.365mm)(0mm,10.095mm) on Top Layer Dead Copper - Net Not Assigned.
+   Violation between Un-Routed Net Constraint: Track (1.27mm,11.365mm)(27.586mm,11.365mm) on Top Layer Dead Copper - Net Not Assigned.
+   Violation between Un-Routed Net Constraint: Track (1mm,-0.635mm)(27mm,-0.635mm) on Top Layer Dead Copper - Net Not Assigned.
+   Violation between Un-Routed Net Constraint: Track (27mm,-0.635mm)(27.73mm,-0.635mm) on Top Layer Dead Copper - Net Not Assigned.
+   Violation between Un-Routed Net Constraint: Track (29mm,0.635mm)(29mm,9.365mm) on Top Layer Dead Copper - Net Not Assigned.
+   Violation between Un-Routed Net Constraint: Net GND Between Via (10.5mm,2.875mm) from Top Layer to Bottom Layer And Via (11.928mm,4.976mm) from Top Layer to Bottom Layer 
+   Violation between Un-Routed Net Constraint: Net GND Between Via (8.263mm,4.375mm) from Top Layer to Bottom Layer And Via (11.928mm,4.976mm) from Top Layer to Bottom Layer 
+   Violation between Un-Routed Net Constraint: Net GND Between Via (17.543mm,2.944mm) from Top Layer to Bottom Layer And Via (23.569mm,5.623mm) from Top Layer to Bottom Layer 
+Rule Violations :15
+
+Processing Rule : Modified Polygon (Allow modified: No), (Allow shelved: No)
+   Violation between Modified Polygon: Polygon Not Repour After Edit  (NONET_L02_P001) on Bottom Layer 
+Rule Violations :1
+
+Processing Rule : Width Constraint (Min=0.254mm) (Max=0.5mm) (Preferred=0.3mm) (All)
+Rule Violations :0
+
+Processing Rule : Routing Topology Rule(Topology=Shortest) (All)
+Rule Violations :0
+
+Processing Rule : Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)
+Rule Violations :0
+
+Processing Rule : Hole Size Constraint (Min=0.025mm) (Max=2.54mm) (All)
+Rule Violations :0
+
+Processing Rule : Hole To Hole Clearance (Gap=0.254mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Minimum Solder Mask Sliver (Gap=0.254mm) (All),(All)
+   Violation between Minimum Solder Mask Sliver Constraint: (0.197mm < 0.254mm) Between Pad C1-1(17.543mm,4.175mm) on Top Layer And Pad C1-2(17.543mm,5.825mm) on Top Layer [Top Solder] Mask Sliver [0.197mm]
+   Violation between Minimum Solder Mask Sliver Constraint: (0.197mm < 0.254mm) Between Pad C2-1(10.5mm,5.825mm) on Top Layer And Pad C2-2(10.5mm,4.175mm) on Top Layer [Top Solder] Mask Sliver [0.197mm]
+Rule Violations :2
+
+Processing Rule : Silk To Solder Mask (Clearance=0.254mm) (IsPad),(All)
+   Violation between Silk To Solder Mask Clearance Constraint: (0.175mm < 0.254mm) Between Arc (11.65mm,5.95mm) on Top Overlay And Pad C2-1(10.5mm,5.825mm) on Top Layer [Top Overlay] to [Top Solder] clearance [0.175mm]
+Rule Violations :1
+
+Processing Rule : Silk to Silk (Clearance=0.254mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Net Antennae (Tolerance=0mm) (All)
+Rule Violations :0
+
+Processing Rule : Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)
+Rule Violations :0
+
+
+Violations Detected : 29
+Waived Violations : 0
+Time Elapsed        : 00:00:00

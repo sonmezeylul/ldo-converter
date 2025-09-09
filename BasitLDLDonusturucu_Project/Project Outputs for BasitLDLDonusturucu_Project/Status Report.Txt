@@ -1,0 +1,21 @@
+Output: Gerber X2 Files
+Type  : GerberX2
+From  : Variant [[No Variations]] of Project [BasitLDLDonusturucu_Project.PrjPcb]
+   Generated File[LDO_Copper_Signal_Top.gbr]
+   Generated File[LDO_Copper_Signal_Bot.gbr]
+   Generated File[LDO_Legend_Top.gbr]
+   Generated File[LDO_Soldermask_Top.gbr]
+   Generated File[LDO_Soldermask_Bot.gbr]
+   Generated File[LDO_Paste_Top.gbr]
+   Generated File[LDO_Paste_Bot.gbr]
+   Generated File[LDO_Profile.gbr]
+   Generated File[LDO_NPTH_Drill.gbr]
+   Generated File[LDO_PTH_Drill.gbr]
+   Generated File[LDO.EXTREP]
+   Generated File[LDO.REP]
+
+
+Files Generated   : 12
+Documents Printed : 0
+
+Finished Output Generation At 12:05:34 On 9.09.2025

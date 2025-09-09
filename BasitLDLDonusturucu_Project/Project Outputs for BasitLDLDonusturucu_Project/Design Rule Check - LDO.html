@@ -1,0 +1,450 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+		td, th {
+			padding: 0.5em;
+			text-align : left;
+			width: 10em;
+		}
+		th {
+			background-color : #EEEEEE;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+			font-size: 0.9em;
+		}
+
+		.DRC_summary_header {
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width: 100%;
+			align: left;
+		}
+
+		.DRC_summary_header_col1,
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3 {
+			color : black;
+			font-size:100%;
+			padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2em;
+			border : 0px solid black;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.DRC_summary_header_col1 {
+			font-weight: bold;
+			width: 9em;
+		}
+
+		.DRC_summary_header_col2 {
+			width: 0.1em;
+		
+		}
+
+		.DRC_summary_header_col3 {
+			width : auto;
+		}
+
+		.header_holder {
+		    Width = 100%;
+		    border = 0px solid green;
+		    padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 8em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD25\Templates\AD_logo.png
+		"><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td class="column1">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">9.09.2025</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">11:18:17</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:00</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///C:\Users\Public\Documents\Altium\BasitLDLDonusturucu_Project\LDO.PcbDoc" class="file"><acronym title="C:\Users\Public\Documents\Altium\BasitLDLDonusturucu_Project\LDO.PcbDoc">C:\Users\Public\Documents\Altium\BasitLDLDonusturucu_Project\LDO.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td class="column2">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">1</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">29</td></tr>
+</table>
+</td>
+</table><a name="IDMS4UH43AAHUMEGAA3WGT154DPEXSDS15053HLRGRIQGQEJYMF0EK"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDCOX4ERXD4O00OC1IH0ZFCJM20DPFCIZEORD3NCFRSKVXS5LJBPAJ">Design contains shelved or modified (but not repoured) polygons. The result of DRC is not correct. Recommended to restore/repour all polygons and proceed with DRC again</a></td>
+<td class="column2">1</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">1</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDPVKVZ4NSKHN2B4ZC3R52P05IEKITCCTU3G53XRPABHRWQQ1ZQO5N">Clearance Constraint (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">5</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDJFUIQRLHSCICIBZNZWGB1QIZDIVEAICXAY5XBUE1RSSYN5BI1TTI">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">5</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDCM0PDKRUAPAWBRPJRUNRXSDKXHHXMSWYYMRXSSKBLWH0DKDJY0PK">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">15</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDELM1G11NWZSZISMX1G0MVNQFEJIIEFJPIKMWLUPCDPHDXRECOFT">Modified Polygon (Allow modified: No), (Allow shelved: No)</a></td>
+<td class="column2">1</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDG3TNY3E5WN21FDS2RSSSOSEFRCJWJ3QDCUI2W5IOVXKPXUYEZ0GM">Width Constraint (Min=0.254mm) (Max=0.5mm) (Preferred=0.3mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDEUM3XCHP0LZZFU14DGMWUXNAEIGEOWKPKUIHNJB4LXO3ADB2SX4N">Routing Topology Rule(Topology=Shortest) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDH5OVWQTMQ0WVMOOUC3OUV3UVROMVDO4DT2JMPLJRU1OEDLMYYS4G">Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDNBQBKFCHSE33ELYRZKXUZCRIVNSVMQVXADLH5IK2VFTTQVTKV3IN">Hole Size Constraint (Min=0.025mm) (Max=2.54mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDAEJ3NKDV21F5NWDUYUOUWZGJNEVT3RA4QUPLBCB23QKBZQ00EHCG">Hole To Hole Clearance (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDYN1ULBQY5ZZSKO3OETJPRXTVIC0JC3BNAQRQ2SIEGRY2533WPZ5P">Minimum Solder Mask Sliver (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">2</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDVN30Z4PP4IRUC5KDF4SVU4GW1ELFNGWJGYUKGHMMZPKNLQKMPHRF">Silk To Solder Mask (Clearance=0.254mm) (IsPad),(All)</a></td>
+<td class="column2">1</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDCSQKNCKMSIBKARBVRDMG0Q1EENYXFMAXIW22NHWFKHHDDYSP3CM">Silk to Silk (Clearance=0.254mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDZU50FPLBEFFEHI04S32ZUW33ZMWSUIBY32VEGUMNDK1XMCZFZBXL">Net Antennae (Tolerance=0mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDBR505NJ0CKCIF5QSCO30NWM40K04XOA3WGJ1UZGZHWIXZK232DNF">Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">29</td>
+</tr>
+</table><br><a name="IDUK35Y4BE2F0EEBKJUY35XUWKCGYWSVXH0APCSNFOTHX3WWFGNQ3K"><h2>Warnings</h2></a><a name="IDCOX4ERXD4O00OC1IH0ZFCJM20DPFCIZEORD3NCFRSKVXS5LJBPAJ"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="warning">Design contains shelved or modified (but not repoured) polygons. The result of DRC is not correct. Recommended to restore/repour all polygons and proceed with DRC again</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Polygon named: NONET_L02_P001 On Top Layer</td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDPVKVZ4NSKHN2B4ZC3R52P05IEKITCCTU3G53XRPABHRWQQ1ZQO5N"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Clearance Constraint (Gap=0.254mm) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\BasitLDLDonusturucu_Project\LDO.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4070.97mil|Location2.X=4078.636mil|Location1.Y=2510.918mil|Location2.Y=2518.584mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\BasitLDLDonusturucu_Project\LDO.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4070.97mil|Location2.X=4078.636mil|Location1.Y=2510.918mil|Location2.Y=2518.584mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.254mm) Between Polygon Region (0 hole(s)) Bottom Layer And Via (10.5mm,2.875mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\BasitLDLDonusturucu_Project\LDO.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4127.198mil|Location2.X=4134.864mil|Location1.Y=2593.63mil|Location2.Y=2601.296mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\BasitLDLDonusturucu_Project\LDO.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4127.198mil|Location2.X=4134.864mil|Location1.Y=2593.63mil|Location2.Y=2601.296mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.254mm) Between Polygon Region (0 hole(s)) Bottom Layer And Via (11.928mm,4.976mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\BasitLDLDonusturucu_Project\LDO.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4348.266mil|Location2.X=4355.932mil|Location1.Y=2513.641mil|Location2.Y=2521.307mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\BasitLDLDonusturucu_Project\LDO.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4348.266mil|Location2.X=4355.932mil|Location1.Y=2513.641mil|Location2.Y=2521.307mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.254mm) Between Polygon Region (0 hole(s)) Bottom Layer And Via (17.543mm,2.944mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\BasitLDLDonusturucu_Project\LDO.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4585.489mil|Location2.X=4593.156mil|Location1.Y=2619.109mil|Location2.Y=2626.775mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\BasitLDLDonusturucu_Project\LDO.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4585.489mil|Location2.X=4593.156mil|Location1.Y=2619.109mil|Location2.Y=2626.775mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.254mm) Between Polygon Region (0 hole(s)) Bottom Layer And Via (23.569mm,5.623mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\BasitLDLDonusturucu_Project\LDO.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3982.88mil|Location2.X=3990.547mil|Location1.Y=2569.986mil|Location2.Y=2577.652mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\BasitLDLDonusturucu_Project\LDO.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3982.88mil|Location2.X=3990.547mil|Location1.Y=2569.986mil|Location2.Y=2577.652mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.254mm) Between Polygon Region (0 hole(s)) Bottom Layer And Via (8.263mm,4.375mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDJFUIQRLHSCICIBZNZWGB1QIZDIVEAICXAY5XBUE1RSSYN5BI1TTI"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Short-Circuit Constraint (Allowed=No) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\BasitLDLDonusturucu_Project\LDO.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4053.648mil|Location2.X=4095.958mil|Location1.Y=2493.596mil|Location2.Y=2535.906mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\BasitLDLDonusturucu_Project\LDO.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4053.648mil|Location2.X=4095.958mil|Location1.Y=2493.596mil|Location2.Y=2535.906mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (0 hole(s)) Bottom Layer And Via (10.5mm,2.875mm) from Top Layer to Bottom Layer Location : [X = 103.5mm][Y = 63.875mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\BasitLDLDonusturucu_Project\LDO.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4109.876mil|Location2.X=4152.186mil|Location1.Y=2576.307mil|Location2.Y=2618.618mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\BasitLDLDonusturucu_Project\LDO.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4109.876mil|Location2.X=4152.186mil|Location1.Y=2576.307mil|Location2.Y=2618.618mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (0 hole(s)) Bottom Layer And Via (11.928mm,4.976mm) from Top Layer to Bottom Layer Location : [X = 104.928mm][Y = 65.976mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\BasitLDLDonusturucu_Project\LDO.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4330.944mil|Location2.X=4373.254mil|Location1.Y=2496.319mil|Location2.Y=2538.629mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\BasitLDLDonusturucu_Project\LDO.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4330.944mil|Location2.X=4373.254mil|Location1.Y=2496.319mil|Location2.Y=2538.629mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (0 hole(s)) Bottom Layer And Via (17.543mm,2.944mm) from Top Layer to Bottom Layer Location : [X = 110.543mm][Y = 63.944mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\BasitLDLDonusturucu_Project\LDO.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4568.167mil|Location2.X=4610.478mil|Location1.Y=2601.787mil|Location2.Y=2644.097mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\BasitLDLDonusturucu_Project\LDO.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4568.167mil|Location2.X=4610.478mil|Location1.Y=2601.787mil|Location2.Y=2644.097mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (0 hole(s)) Bottom Layer And Via (23.569mm,5.623mm) from Top Layer to Bottom Layer Location : [X = 116.569mm][Y = 66.623mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\BasitLDLDonusturucu_Project\LDO.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3965.558mil|Location2.X=4007.869mil|Location1.Y=2552.664mil|Location2.Y=2594.974mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\BasitLDLDonusturucu_Project\LDO.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3965.558mil|Location2.X=4007.869mil|Location1.Y=2552.664mil|Location2.Y=2594.974mil|Absolute=True">Short-Circuit Constraint: Between Polygon Region (0 hole(s)) Bottom Layer And Via (8.263mm,4.375mm) from Top Layer to Bottom Layer Location : [X = 101.263mm][Y = 65.375mm]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDCM0PDKRUAPAWBRPJRUNRXSDKXHHXMSWYYMRXSSKBLWH0DKDJY0PK"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Un-Routed Net Constraint ( (All) )</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\BasitLDLDonusturucu_Project\LDO.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3656.417mil|Location2.X=3716.417mil|Location1.Y=2794.016mil|Location2.Y=2854.016mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\BasitLDLDonusturucu_Project\LDO.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3656.417mil|Location2.X=3716.417mil|Location1.Y=2794.016mil|Location2.Y=2854.016mil|Absolute=True">Un-Routed Net Constraint: Arc (1.27mm,10.095mm) on Top Layer Dead Copper - Net Not Assigned.</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\BasitLDLDonusturucu_Project\LDO.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3656.417mil|Location2.X=3705.787mil|Location1.Y=2371.575mil|Location2.Y=2420.945mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\BasitLDLDonusturucu_Project\LDO.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3656.417mil|Location2.X=3705.787mil|Location1.Y=2371.575mil|Location2.Y=2420.945mil|Absolute=True">Un-Routed Net Constraint: Arc (1mm,0.365mm) on Top Layer Dead Copper - Net Not Assigned.</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\BasitLDLDonusturucu_Project\LDO.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4770.311mil|Location2.X=4808.15mil|Location1.Y=2765.276mil|Location2.Y=2842.485mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\BasitLDLDonusturucu_Project\LDO.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4770.311mil|Location2.X=4808.15mil|Location1.Y=2765.276mil|Location2.Y=2842.485mil|Absolute=True">Un-Routed Net Constraint: Arc (26.586mm,9.365mm) on Top Layer Dead Copper - Net Not Assigned.</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\BasitLDLDonusturucu_Project\LDO.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4742.472mil|Location2.X=4780.311mil|Location1.Y=2832.485mil|Location2.Y=2854.016mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\BasitLDLDonusturucu_Project\LDO.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4742.472mil|Location2.X=4780.311mil|Location1.Y=2832.485mil|Location2.Y=2854.016mil|Absolute=True">Un-Routed Net Constraint: Arc (27.586mm,10.365mm) on Top Layer Dead Copper - Net Not Assigned.</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\BasitLDLDonusturucu_Project\LDO.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4748.15mil|Location2.X=4808.15mil|Location1.Y=2371.575mil|Location2.Y=2431.575mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\BasitLDLDonusturucu_Project\LDO.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4748.15mil|Location2.X=4808.15mil|Location1.Y=2371.575mil|Location2.Y=2431.575mil|Absolute=True">Un-Routed Net Constraint: Arc (27.73mm,0.635mm) on Top Layer Dead Copper - Net Not Assigned.</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\BasitLDLDonusturucu_Project\LDO.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4060.455mil|Location2.X=4452.099mil|Location1.Y=2497.463mil|Location2.Y=2665.945mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\BasitLDLDonusturucu_Project\LDO.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4060.455mil|Location2.X=4452.099mil|Location1.Y=2497.463mil|Location2.Y=2665.945mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Track (12.676mm,4.976mm)(12.7mm,5mm) on Top Layer And Pad C1-1(17.543mm,4.175mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\BasitLDLDonusturucu_Project\LDO.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3674.933mil|Location2.X=4787.648mil|Location1.Y=2388.745mil|Location2.Y=2835.919mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\BasitLDLDonusturucu_Project\LDO.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3674.933mil|Location2.X=4787.648mil|Location1.Y=2388.745mil|Location2.Y=2835.919mil|Absolute=True">Un-Routed Net Constraint: Polygon Not Repour After Edit  (NONET_L02_P001) on Bottom Layer Dead Copper - Net Not Assigned.</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\BasitLDLDonusturucu_Project\LDO.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3656.417mil|Location2.X=3666.417mil|Location1.Y=2410.945mil|Location2.Y=2804.016mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\BasitLDLDonusturucu_Project\LDO.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3656.417mil|Location2.X=3666.417mil|Location1.Y=2410.945mil|Location2.Y=2804.016mil|Absolute=True">Un-Routed Net Constraint: Track (0mm,0.365mm)(0mm,10.095mm) on Top Layer Dead Copper - Net Not Assigned.</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\BasitLDLDonusturucu_Project\LDO.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3706.417mil|Location2.X=4752.472mil|Location1.Y=2844.016mil|Location2.Y=2854.016mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\BasitLDLDonusturucu_Project\LDO.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3706.417mil|Location2.X=4752.472mil|Location1.Y=2844.016mil|Location2.Y=2854.016mil|Absolute=True">Un-Routed Net Constraint: Track (1.27mm,11.365mm)(27.586mm,11.365mm) on Top Layer Dead Copper - Net Not Assigned.</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\BasitLDLDonusturucu_Project\LDO.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3695.787mil|Location2.X=4729.409mil|Location1.Y=2371.575mil|Location2.Y=2381.575mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\BasitLDLDonusturucu_Project\LDO.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3695.787mil|Location2.X=4729.409mil|Location1.Y=2371.575mil|Location2.Y=2381.575mil|Absolute=True">Un-Routed Net Constraint: Track (1mm,-0.635mm)(27mm,-0.635mm) on Top Layer Dead Copper - Net Not Assigned.</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\BasitLDLDonusturucu_Project\LDO.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4719.409mil|Location2.X=4758.15mil|Location1.Y=2371.575mil|Location2.Y=2381.575mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\BasitLDLDonusturucu_Project\LDO.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4719.409mil|Location2.X=4758.15mil|Location1.Y=2371.575mil|Location2.Y=2381.575mil|Absolute=True">Un-Routed Net Constraint: Track (27mm,-0.635mm)(27.73mm,-0.635mm) on Top Layer Dead Copper - Net Not Assigned.</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\BasitLDLDonusturucu_Project\LDO.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4798.15mil|Location2.X=4808.15mil|Location1.Y=2421.575mil|Location2.Y=2775.276mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\BasitLDLDonusturucu_Project\LDO.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4798.15mil|Location2.X=4808.15mil|Location1.Y=2421.575mil|Location2.Y=2775.276mil|Absolute=True">Un-Routed Net Constraint: Track (29mm,0.635mm)(29mm,9.365mm) on Top Layer Dead Copper - Net Not Assigned.</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\BasitLDLDonusturucu_Project\LDO.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4061.024mil|Location2.X=4144.811mil|Location1.Y=2500.972mil|Location2.Y=2611.242mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\BasitLDLDonusturucu_Project\LDO.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4061.024mil|Location2.X=4144.811mil|Location1.Y=2500.972mil|Location2.Y=2611.242mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Via (10.5mm,2.875mm) from Top Layer to Bottom Layer And Via (11.928mm,4.976mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\BasitLDLDonusturucu_Project\LDO.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3972.934mil|Location2.X=4144.811mil|Location1.Y=2560.039mil|Location2.Y=2611.242mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\BasitLDLDonusturucu_Project\LDO.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3972.934mil|Location2.X=4144.811mil|Location1.Y=2560.039mil|Location2.Y=2611.242mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Via (8.263mm,4.375mm) from Top Layer to Bottom Layer And Via (11.928mm,4.976mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\BasitLDLDonusturucu_Project\LDO.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4338.319mil|Location2.X=4603.102mil|Location1.Y=2503.695mil|Location2.Y=2636.722mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\BasitLDLDonusturucu_Project\LDO.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4338.319mil|Location2.X=4603.102mil|Location1.Y=2503.695mil|Location2.Y=2636.722mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Via (17.543mm,2.944mm) from Top Layer to Bottom Layer And Via (23.569mm,5.623mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDELM1G11NWZSZISMX1G0MVNQFEJIIEFJPIKMWLUPCDPHDXRECOFT"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Modified Polygon (Allow modified: No), (Allow shelved: No)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\BasitLDLDonusturucu_Project\LDO.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3674.933mil|Location2.X=4787.648mil|Location1.Y=2388.745mil|Location2.Y=2835.919mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\BasitLDLDonusturucu_Project\LDO.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3674.933mil|Location2.X=4787.648mil|Location1.Y=2388.745mil|Location2.Y=2835.919mil|Absolute=True">Modified Polygon: Polygon Not Repour After Edit  (NONET_L02_P001) on Bottom Layer </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDYN1ULBQY5ZZSKO3OETJPRXTVIC0JC3BNAQRQ2SIEGRY2533WPZ5P"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Minimum Solder Mask Sliver (Gap=0.254mm) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\BasitLDLDonusturucu_Project\LDO.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4379.017mil|Location2.X=4390.267mil|Location1.Y=2592.8mil|Location2.Y=2604.05mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\BasitLDLDonusturucu_Project\LDO.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4379.017mil|Location2.X=4390.267mil|Location1.Y=2592.8mil|Location2.Y=2604.05mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.197mm &lt; 0.254mm) Between Pad C1-1(17.543mm,4.175mm) on Top Layer And Pad C1-2(17.543mm,5.825mm) on Top Layer [Top Solder] Mask Sliver [0.197mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\BasitLDLDonusturucu_Project\LDO.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4036.635mil|Location2.X=4047.885mil|Location1.Y=2592.8mil|Location2.Y=2604.05mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\BasitLDLDonusturucu_Project\LDO.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4036.635mil|Location2.X=4047.885mil|Location1.Y=2592.8mil|Location2.Y=2604.05mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.197mm &lt; 0.254mm) Between Pad C2-1(10.5mm,5.825mm) on Top Layer And Pad C2-2(10.5mm,4.175mm) on Top Layer [Top Solder] Mask Sliver [0.197mm]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDVN30Z4PP4IRUC5KDF4SVU4GW1ELFNGWJGYUKGHMMZPKNLQKMPHRF"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Silk To Solder Mask (Clearance=0.254mm) (IsPad),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\BasitLDLDonusturucu_Project\LDO.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4101.166mil|Location2.X=4112.416mil|Location1.Y=2630.202mil|Location2.Y=2641.452mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\BasitLDLDonusturucu_Project\LDO.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4101.166mil|Location2.X=4112.416mil|Location1.Y=2630.202mil|Location2.Y=2641.452mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.175mm &lt; 0.254mm) Between Arc (11.65mm,5.95mm) on Top Overlay And Pad C2-1(10.5mm,5.825mm) on Top Layer [Top Overlay] to [Top Solder] clearance [0.175mm]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>
